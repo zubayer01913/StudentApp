@@ -3,5 +3,8 @@
 @{
 }
 
-
+@foreach (var item in Model.Students)
+{
+    <p>@item.Name, @item.ClassName</p>
+}
 <h5>Test Project</h5>
