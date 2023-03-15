@@ -1,0 +1,32 @@
+﻿@page
+@model StudentApp.Pages.Students.CreateOrUpdateModel
+@{
+}
+
+
+<form method="post" asp-page="/Students/CreateOrUpdate">
+    <input type="hidden" asp-for="Student.Id" />
+    <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input type="text" class="form-control" asp-for="Student.Name">
+        <span asp-validation-for="Student.Name" class="text-danger"></span>
+    </div>  
+    <div class="form-group">
+        <label for="exampleInputEmail1">Class Name</label>
+        <input type="text" class="form-control" asp-for="Student.ClassName">
+        <span asp-validation-for="Student.ClassName" class="text-danger"></span>
+    </div> 
+    <div class="form-group">
+        <label for="exampleInputEmail1">Phone Number</label>
+        <input type="text" class="form-control" asp-for="Student.PhoneNumber">
+        <span asp-validation-for="Student.PhoneNumber" class="text-danger"></span>
+    </div>  
+    <div class="form-group">
+        <label for="exampleInputEmail1">Comment</label>
+        <input type="text" class="form-control" asp-for="Student.Description">
+        <span asp-validation-for="Student.Description" class="text-danger"></span>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
