@@ -16,5 +16,13 @@ namespace StudentApp.Models
         [Required]
         public string PhoneNumber { get; set; }
         public string ClassName { get; set; }
+
+
+        public int? StudentInfoId { get; set; }
+        public StudentInfo StudentInfo { get; set; }
+
+        public int? GradeId { get; set; }
+        public Grade Grade { get; set; }
+
     }
 }
