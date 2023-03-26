@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StudentApp.Models;
+using System.Diagnostics.Contracts;
 
 namespace StudentApp
 {

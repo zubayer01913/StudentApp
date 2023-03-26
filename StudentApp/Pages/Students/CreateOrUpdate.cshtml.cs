@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using StudentApp.Models;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace StudentApp.Pages.Students
@@ -11,6 +14,8 @@ namespace StudentApp.Pages.Students
     {
         [BindProperty]
         public StudentInputModel Student { get; set; } = new StudentInputModel();
+
+        public List<SelectListItem> Grades { get; set; }  
 
         private readonly StudentDbContext _dbContext;
         public CreateOrUpdateModel(StudentDbContext dbContext)
@@ -29,10 +34,12 @@ namespace StudentApp.Pages.Students
                     Student.Description = reslut.Description;
                     Student.PhoneNumber = reslut.PhoneNumber;
                     Student.ClassName = reslut.ClassName;
+                    Student.GradeId = reslut.GradeId;
                 }
             }
-
+            Grades = _dbContext.Grades.Select(x => new SelectListItem(x.Name, x.Id.ToString())).ToList();
         }
+
 
         public async Task OnPost()
         {
@@ -44,6 +51,7 @@ namespace StudentApp.Pages.Students
             student.Description = Student.Description;
             student.PhoneNumber = Student.PhoneNumber;
             student.ClassName = Student.ClassName;
+            student.GradeId = Student.GradeId;
 
             if (Student.Id.HasValue)
             {
@@ -71,5 +79,6 @@ namespace StudentApp.Pages.Students
         [Required]
         public string PhoneNumber { get; set; }
         public string ClassName { get; set; }
+        public int? GradeId { get; set; }
     }
 }

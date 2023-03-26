@@ -1,0 +1,23 @@
+﻿@page
+@model StudentApp.Pages.Students.DeleteModel
+@{
+}
+<form method="post" asp-page="/Students/Delete">
+    <input type="hidden" asp-for="StudentData.Id" />
+    <div class="row">
+        <div class="col-12">
+            Name:  @Model.StudentData.Name
+        </div>
+        <div class="col-12">
+            PhoneNumber:   @Model.StudentData.PhoneNumber
+        </div>
+        <div class="col-12">
+            Class:  @Model.StudentData.ClassName
+        </div>
+        <div class="col-12">
+           Comment:  @Model.StudentData.Description
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
