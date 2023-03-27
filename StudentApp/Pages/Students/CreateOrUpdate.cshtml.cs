@@ -15,7 +15,7 @@ namespace StudentApp.Pages.Students
         [BindProperty]
         public StudentInputModel Student { get; set; } = new StudentInputModel();
 
-        public List<SelectListItem> Grades { get; set; }  
+        public List<SelectListItem> Grades { get; set; }
 
         private readonly StudentDbContext _dbContext;
         public CreateOrUpdateModel(StudentDbContext dbContext)
@@ -41,7 +41,7 @@ namespace StudentApp.Pages.Students
         }
 
 
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             var student = new Student();
             if (Student.Id.HasValue)
@@ -62,8 +62,11 @@ namespace StudentApp.Pages.Students
                 _dbContext.Students.Add(student);
             }
 
-          await  _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
+
+            return Redirect("./Index");
         }
+
     }
 
 
