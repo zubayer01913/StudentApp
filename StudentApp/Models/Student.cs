@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using StudentApp.Models.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace StudentApp.Models
 {
@@ -17,7 +18,8 @@ namespace StudentApp.Models
         public string PhoneNumber { get; set; }
         public string ClassName { get; set; }
 
-
+        public string FileName { get; set; }
+        public string Gender { get; set; }
         public int? StudentInfoId { get; set; }
         public StudentInfo StudentInfo { get; set; }
 

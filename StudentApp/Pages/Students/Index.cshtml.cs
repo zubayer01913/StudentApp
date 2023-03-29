@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using StudentApp.Models;
+using StudentApp.Models.Enums;
 using StudentApp.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace StudentApp.Pages.Students
         public async Task OnGet()
         {
             var output = await _dbContext.Students.ToListAsync();
-            Students = output.Select(x => new StudentViewModel { ClassName = x.ClassName, Id = x.Id, Description = x.Description, Name = x.Name });
+            Students = output.Select(x => new StudentViewModel { Gender = x.Gender,  ClassName = x.ClassName, Id = x.Id, Description = x.Description, Name = x.Name });
         }
     }
 }
